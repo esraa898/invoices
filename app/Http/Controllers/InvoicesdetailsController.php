@@ -103,9 +103,11 @@ class InvoicesdetailsController extends Controller
         return view('invoices.invoicesdetails',compact('invoices','details','attachements'));
     }
     public function viewfile($id,$filename){
-     
+        
         $path=public_path('Attachements/'.$id.'/'.$filename);
         return response()->file($path);
+        // $files = Storage::disk('public_uploads')->getDriver()->getAdapter()->applyPathPrefix($invoice_number.'/'.$file_name);
+        // return response()->file($files);
     }
     public function downloadfile($id,$filename){
 
